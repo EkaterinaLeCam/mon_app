@@ -26,16 +26,16 @@ class Curriculum
     private ?int $age = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $level_of_studies = null;
+    private ?string $levelOfStudies = null;
 
     #[ORM\Column]
-    private ?int $total_experience = null;
+    private ?int $totalExperience = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $link_linkedin = null;
+    private ?string $linkLinkedin = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $link_github = null;
+    private ?string $linkGithub = null;
 
     public function getId(): ?int
     {
@@ -92,48 +92,48 @@ class Curriculum
 
     public function getLevelOfStudies(): ?string
     {
-        return $this->level_of_studies;
+        return $this->levelOfStudies;
     }
 
-    public function setLevelOfStudies(string $level_of_studies): self
+    public function setLevelOfStudies(string $levelOfStudies): self
     {
-        $this->level_of_studies = $level_of_studies;
+        $this->levelOfStudies = $levelOfStudies;
 
         return $this;
     }
 
     public function getTotalExperience(): ?int
     {
-        return $this->total_experience;
+        return $this->totalExperience;
     }
 
-    public function setTotalExperience(int $total_experience): self
+    public function setTotalExperience(int $totalExperience): self
     {
-        $this->total_experience = $total_experience;
+        $this->totalExperience = $totalExperience;
 
         return $this;
     }
 
     public function getLinkLinkedin(): ?string
     {
-        return $this->link_linkedin;
+        return $this->linkLinkedin;
     }
 
-    public function setLinkLinkedin(string $link_linkedin): self
+    public function setLinkLinkedin(string $linkLinkedin): self
     {
-        $this->link_linkedin = $link_linkedin;
+        $this->linkLinkedin = $linkLinkedin;
 
         return $this;
     }
 
     public function getLinkGithub(): ?string
     {
-        return $this->link_github;
+        return $this->linkGithub;
     }
 
-    public function setLinkGithub(string $link_github): self
+    public function setLinkGithub(string $linkGithub): self
     {
-        $this->link_github = $link_github;
+        $this->linkGithub = $linkGithub;
 
         return $this;
     }
