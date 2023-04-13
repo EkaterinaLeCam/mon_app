@@ -7,6 +7,8 @@ use App\Repository\CurriculumRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Curriculum;
+use App\Form\CurriculumType;
 
 class HomeController extends AbstractController
 {
@@ -48,12 +50,21 @@ public function downloadPdf(CurriculumRepository $cv): Response
         ['Content-Type' => 'application/pdf']
     );
 }
+#[Route('/new', name: 'app_cv_new')]
+public function new(){
+    $cv= new Curriculum();
+    $cv->setFirstname('paul')
+       ->setLastname('pierre')
+       ->setCity('marseille')
+       ->setAge('35')
+       ->setLevelOfStudies('bts')
+       ->setTotalExperience('10')
+       ->setLinkLinkedin('https://linkedin.com')
+       ->setLinkGithub('https://github.com');
 
-private function imageToBase64($path) {
-    $path = $path;
-    $type = pathinfo($path, PATHINFO_EXTENSION);
-    $data = file_get_contents($path);
-    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-    return $base64;
+    $form =$this->createForm(CurriculumType::class, $cv);
+
+    return $this->render('home/new.html.twig',['form'=>$form->createView(),]);
 }
+
 }
